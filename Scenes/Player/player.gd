@@ -2,15 +2,10 @@ extends CharacterBody2D
 class_name Player
 
 @export var move_speed: float = 100
-var is_dashing: bool = false
-var dash_timer = Timer.new()
 
 
 func _ready() -> void:
-	var score: int = 200
-	var money: float = 15.5
-	var username: String = "Charlie"
-	var is_player_alive: bool = true
+	position = SceneManager.playerSpawnPosition
 	
 	
 

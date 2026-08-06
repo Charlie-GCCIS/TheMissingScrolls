@@ -15,6 +15,14 @@ run/main_scene="uid://c2qwiiu4mrge7"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SceneManager="*uid://bgu0lo82eps3y"
+
+[display]
+
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="Udemy Adventure game"

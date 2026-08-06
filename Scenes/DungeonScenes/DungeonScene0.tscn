@@ -1,3 +1,18 @@
 [gd_scene format=3 uid="uid://ddygrki50b25p"]
 
+[ext_resource type="PackedScene" uid="uid://b52x5eanw8lmr" path="res://Scenes/Player/Player.tscn" id="1_dqhsn"]
+[ext_resource type="PackedScene" uid="uid://cl1f66c5ph5qx" path="res://SceneEntrances/scene_entrance.tscn" id="2_vhckk"]
+
 [node name="Dungeon_Scene" type="Node2D" unique_id=1863663247]
+
+[node name="Player" parent="." unique_id=2080065266 instance=ExtResource("1_dqhsn")]
+position = Vector2(438, 211)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=23481210]
+position = Vector2(-3.2283325, 7.532791)
+scale = Vector2(0.53805643, 0.53805643)
+zoom = Vector2(3, 3)
+
+[node name="SceneEntrance" parent="." unique_id=1615416480 instance=ExtResource("2_vhckk")]
+position = Vector2(438, 189)
+nextScene = "res://Scenes/ForestScenes/MainForestScene.tscn"

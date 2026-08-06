@@ -3,10 +3,6 @@
 [ext_resource type="Script" uid="uid://dj55murkrhix7" path="res://Scenes/Player/player.gd" id="1_ft8w5"]
 [ext_resource type="Texture2D" uid="uid://fyq0hngfyd2r" path="res://Adventure_Sprites/Ninja Adventure - Asset Pack/Actor/Characters/Knight/SeparateAnim/Walk.png" id="2_ft8w5"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ihfcg"]
-radius = 7.0
-height = 16.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_h54ih"]
 atlas = ExtResource("2_ft8w5")
 region = Rect2(0, 0, 16, 16)
@@ -142,14 +138,19 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ihfcg"]
+radius = 5.0
+height = 10.0
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=2080065266]
 motion_mode = 1
 script = ExtResource("1_ft8w5")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=803713653]
-shape = SubResource("CapsuleShape2D_ihfcg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=937923901]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_w71ue")
 animation = &"Walk_Up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=803713653]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_ihfcg")

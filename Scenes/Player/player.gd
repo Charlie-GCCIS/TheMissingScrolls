@@ -2,14 +2,18 @@ extends CharacterBody2D
 class_name Player
 
 @export var move_speed: float = 100
+@export var pushStrength: int = 10
 
+# collision variable
+var collision: KinematicCollision2D
 
 func _ready() -> void:
-	position = SceneManager.playerSpawnPosition
-	
+	if SceneManager.playerSpawnPosition != Vector2(0,0):
+		position = SceneManager.playerSpawnPosition
+	Engine.max_fps = 60
 	
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	
 	# input changes velocity (not position cause collisions have issues or something like that)
 	var movement_vector: Vector2 = Input.get_vector("Movement_Left", "Movement_Right", "Movement_Up", "Movement_Down")
@@ -27,7 +31,19 @@ func _process(delta: float) -> void:
 	elif (velocity.y > 0):
 		$AnimatedSprite2D.play("Walk_Down")
 	
+	# get last collision
+	#check if its the block
+	# if it is the block, push it
 	
+	collision = get_last_slide_collision()
+	if collision:
+		var collisionNode = collision.get_collider()
+		
+		if (collisionNode.is_in_group("Pushable")):
+			var collisionNormal: Vector2 = collision.get_normal()
+			
+			collisionNode.apply_central_force(-collisionNormal * pushStrength)
+			#print(collision.get_collider().name)
 	
 		
 	

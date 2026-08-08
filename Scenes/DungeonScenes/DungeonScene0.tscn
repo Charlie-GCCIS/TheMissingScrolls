@@ -840,7 +840,7 @@ position = Vector2(-494, -244)
 is_single_use = true
 
 [node name="Player" parent="." unique_id=2080065266 instance=ExtResource("1_dqhsn")]
-position = Vector2(-639, -158)
+position = Vector2(0, 75)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=23481210]
 position = Vector2(-3.2283325, 7.532791)

@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://boaqdskuftpwb"]
+
+[ext_resource type="Texture2D" uid="uid://cu2n1y4erwh32" path="res://Adventure_Sprites/Ninja Adventure - Asset Pack/Actor/Characters/Inspector/SpriteSheet.png" id="1_4jcf8"]
+[ext_resource type="Script" uid="uid://blvyi31xafwbc" path="res://Scenes/NPCs/npc.gd" id="1_73rl3"]
+[ext_resource type="Texture2D" uid="uid://l8kb7bj27h7g" path="res://Adventure_Sprites/Ninja Adventure - Asset Pack/Ui/Dialog/DialogBoxFaceset.png" id="3_3nssh"]
+[ext_resource type="Texture2D" uid="uid://cya76ri8opbv1" path="res://Adventure_Sprites/Ninja Adventure - Asset Pack/Actor/Characters/Inspector/Faceset.png" id="4_uumbd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nssh"]
+atlas = ExtResource("1_4jcf8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73rl3"]
+size = Vector2(14, 11)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3nssh"]
+font_size = 13
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uumbd"]
+font_size = 5
+font_color = Color(0, 0, 0, 1)
+
+[node name="NPC" type="StaticBody2D" unique_id=589518252 groups=["Interactable"]]
+process_mode = 3
+script = ExtResource("1_73rl3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=930198929]
+texture = SubResource("AtlasTexture_3nssh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=954385835]
+y_sort_enabled = true
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_73rl3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1135938401]
+visible = false
+scale = Vector2(3.7, 3.7)
+transform = Transform2D(3.7, 0, 0, 3.7, 0, 0)
+
+[node name="DialogueBoxTexture" type="TextureRect" parent="CanvasLayer" unique_id=1789228492]
+offset_left = 4.054054
+offset_top = 114.054054
+offset_right = 313.00098
+offset_bottom = 173.78378
+texture = ExtResource("3_3nssh")
+
+[node name="NPCIcon" type="TextureRect" parent="CanvasLayer/DialogueBoxTexture" unique_id=972868235]
+layout_mode = 0
+offset_left = 5.675676
+offset_top = 14.054054
+offset_right = 43.675674
+offset_bottom = 52.054054
+texture = ExtResource("4_uumbd")
+
+[node name="DialogueLabel" type="Label" parent="CanvasLayer" unique_id=1469015329]
+offset_left = 57.56757
+offset_top = 127.567566
+offset_right = 305.4054
+offset_bottom = 166.56757
+label_settings = SubResource("LabelSettings_3nssh")
+autowrap_mode = 3
+
+[node name="NameLabel" type="Label" parent="CanvasLayer" unique_id=1823985497]
+offset_left = 6.2162166
+offset_top = 114.86486
+offset_right = 80.21622
+offset_bottom = 122.86486
+text = "James Bart, The Inspector"
+label_settings = SubResource("LabelSettings_uumbd")
+horizontal_alignment = 1
+vertical_alignment = 1

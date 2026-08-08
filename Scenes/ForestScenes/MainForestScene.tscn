@@ -8,6 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://duljcqfs8exc7" path="res://Scenes/PuzzleButton/puzzle_button.tscn" id="5_acodt"]
 [ext_resource type="PackedScene" uid="uid://cl1f66c5ph5qx" path="res://Scenes/SceneEntrances/scene_entrance.tscn" id="5_w4rfp"]
 [ext_resource type="PackedScene" uid="uid://bd8rehueqi6ce" path="res://Scenes/Block/block.tscn" id="6_dy720"]
+[ext_resource type="Texture2D" uid="uid://df2ygyg2m61x1" path="res://Adventure_Sprites/Ninja Adventure - Asset Pack/Actor/Characters/OldMan2/SpriteSheet.png" id="6_gbii7"]
+[ext_resource type="Texture2D" uid="uid://dtvwltosl3phn" path="res://Adventure_Sprites/Ninja Adventure - Asset Pack/Actor/Characters/OldMan2/Faceset.png" id="7_kb6c4"]
+[ext_resource type="Texture2D" uid="uid://jdrhrl25s28x" path="res://Adventure_Sprites/Ninja Adventure - Asset Pack/Actor/Characters/Woman/SpriteSheet.png" id="8_pp2ie"]
+[ext_resource type="PackedScene" uid="uid://boaqdskuftpwb" path="res://Scenes/NPCs/NPC.tscn" id="9_81u2x"]
+[ext_resource type="Texture2D" uid="uid://cbudqet0jqhq0" path="res://Adventure_Sprites/Ninja Adventure - Asset Pack/Actor/Characters/Woman/Faceset.png" id="9_bogux"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hn12h"]
 texture = ExtResource("1_g78iy")
@@ -931,11 +936,50 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AADo//X/AgAAAAcAAADu//T/AQAAAAIAAADv//b/AQAAAAIAAADw//f/AQAAAAIAAAD0//X/AQAAAAIAAAD4//b/AQAAAAIAAAD5//b/AQAAAAIAAAD8//b/AQAAAAIAAAD8//f/AQAAAAIAAAD+//r/AQAAAAIAAAD///v/AQACAAAAAAABAPv/AQAAAAIAAAACAPv/AQAAAAIAAAACAPr/AQAAAAIAAAACAPn/AQAAAAIAAAACAPj/AQAAAAIAAAADAPj/AQAAAAIAAAAFAPf/AQAAAAIAAAAGAPf/AQAAAAIAAAAHAPb/AQAAAAIAAAAIAPb/AQAAAAIAAAAKAPX/AQACAAAAAAALAPX/AQAAAAIAAAAUAPv/AQAAAAIAAAATAPv/AQAAAAIAAAARAPv/AQAAAAIAAAAQAPv/AQAAAAIAAAAPAPv/AQAAAAIAAAAPAPz/AQAAAAIAAAAQAPz/AQAAAAIAAAASAP7/AQAAAAIAAAATAAIAAQAAAAIAAAAUAP7/AQAAAAIAAAAQAP//AQAAAAIAAAASAAAAAQAAAAIAAAAVAAAAAQAAAAIAAAASAA0AAQAAAAIAAAAQAA8AAQAAAAIAAAAQABAAAQAAAAIAAAATABAAAQAAAAIAAAARABIAAQAAAAIAAAAUABIAAQAAAAIAAAAVAA8AAQAAAAIAAAAVAA4AAQAAAAIAAAATAAwAAQAAAAIAAAANABEAAQAAAAIAAAANABIAAQAAAAIAAAAAABAAAQAAAAIAAAACAA4AAQAAAAIAAAACAA8AAQAAAAIAAAADABIAAQAAAAIAAAAEABIAAQAAAAIAAAAFABIAAQAAAAIAAAD+/xEAAQAAAAIAAAAHABAAAQAAAAIAAAAIABAAAQAAAAIAAAAKABEAAQAAAAIAAAD5/xEAAQAAAAIAAAD5/xAAAQAAAAIAAADy/w8AAQAAAAIAAADy/xAAAQAAAAIAAAD3/xEAAQAAAAIAAAD3/xAAAQAAAAIAAAD1/xAAAQAAAAIAAADw/xAAAQAAAAIAAADu/w8AAQAAAAIAAADr/w8AAQAAAAIAAADr/w4AAQAAAAIAAADq/w0AAQAAAAIAAADq/wwAAQAAAAIAAADp/wwAAQAAAAIAAADp/wsAAQAAAAIAAADo/woAAQAAAAIAAADn/w0AAQAAAAIAAADl/w4AAQAAAAIAAADl/w8AAQAAAAIAAADm/xAAAQAAAAIAAADq/xAAAQAAAAIAAADq/xEAAQAAAAIAAADr/xIAAQAAAAIAAADs/xIAAQAAAAIAAADv/xEAAQAAAAIAAADn/xEAAQAAAAIAAADm/wkAAQAAAAIAAADk/wgAAQAAAAIAAADk/wcAAQAAAAIAAADl/wUAAQAAAAIAAADk/wQAAQAAAAIAAADk/wMAAQAAAAIAAADl/wEAAQAAAAIAAADm/wAAAQAAAAIAAADm////AQAAAAIAAADk//7/AQAAAAIAAADj////AQAAAAIAAAD1//7/AQACAAAAAAD5//7/AQACAAAAAAD9/wIAAQACAAAAAAD8/wgAAQACAAAAAAD8/wkAAQACAAAAAAD5/wsAAQACAAAAAAD0/woAAQACAAAAAADy/wYAAQACAAAAAADz/wEAAQACAAAAAADt/wEAAQACAAAAAADt/wQAAQACAAAAAADt/wYAAQACAAAAAAADAAUAAQACAAAAAAAFAAAAAQACAAAAAAAKAAMAAQACAAAAAAAJAAoAAQACAAAAAAAFAAoAAQACAAAAAAAMAAcAAQACAAAAAAAOAPT/AQACAAAAAAAQAPT/AQACAAAAAAARAPT/AQACAAAAAAASAPT/AQACAAAAAAATAPX/AQACAAAAAAAUAPb/AQACAAAAAAAUAPf/AQACAAAAAAAUAPj/AQACAAAAAAAUAPn/AQACAAAAAAANAPT/AQACAAAAAAANAPX/AQACAAAAAAAIAPf/AQACAAAAAAAGAPj/AQACAAAAAAAGAPn/AQACAAAAAAAFAPr/AQACAAAAAAD7//n/AQACAAAAAAD9//n/AQACAAAAAAD8//n/AQACAAAAAAD///n/AQACAAAAAAD8//r/AQACAAAAAAD///z/AQACAAAAAADu//j/AQACAAAAAADw//X/AQACAAAAAADx//X/AQACAAAAAADy//f/AQACAAAAAAD0//f/AQACAAAAAADz//j/AQACAAAAAADv//r/AQACAAAAAAA=")
 tile_set = SubResource("TileSet_5hph3")
 
+[node name="Inspector" parent="ObstacleLayer" unique_id=589518252 instance=ExtResource("9_81u2x")]
+position = Vector2(-129, 23)
+dialogue = Array[String](["I am Inspector Man, here to inspect your forest and caves", "Those trees need inspecting!", "That CAVE in the WEST needs exploring"])
+
+[node name="OldMan" parent="ObstacleLayer" unique_id=30454623 instance=ExtResource("9_81u2x")]
+position = Vector2(119, 42)
+dialogue = Array[String](["Hey there, young fella", "Did you know there is a cave to the WEST", "You should go check it out"])
+
+[node name="Sprite2D" parent="ObstacleLayer/OldMan" index="0" unique_id=930198929]
+texture = ExtResource("6_gbii7")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="NPCIcon" parent="ObstacleLayer/OldMan/CanvasLayer/DialogueBoxTexture" parent_id_path=PackedInt32Array(30454623, 1789228492) index="0" unique_id=972868235]
+texture = ExtResource("7_kb6c4")
+
+[node name="DialogueLabel" parent="ObstacleLayer/OldMan/CanvasLayer" parent_id_path=PackedInt32Array(30454623, 1135938401) index="1" unique_id=1469015329]
+text = ""
+
+[node name="NameLabel" parent="ObstacleLayer/OldMan/CanvasLayer" parent_id_path=PackedInt32Array(30454623, 1135938401) index="2" unique_id=1823985497]
+text = "OLD MAN PETE"
+
+[node name="Villager4" parent="ObstacleLayer" unique_id=661424751 instance=ExtResource("9_81u2x")]
+position = Vector2(-31, 181)
+dialogue = Array[String](["I LOVE CAMPING SO MUCH! Thats all I want to do today", "The nice outdoors and the birds chirping too", "Cave? What cave? I dont know about any cave in the WEST"])
+
+[node name="Sprite2D" parent="ObstacleLayer/Villager4" index="0" unique_id=930198929]
+texture = ExtResource("8_pp2ie")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="NPCIcon" parent="ObstacleLayer/Villager4/CanvasLayer/DialogueBoxTexture" parent_id_path=PackedInt32Array(661424751, 1789228492) index="0" unique_id=972868235]
+texture = ExtResource("9_bogux")
+
+[node name="DialogueLabel" parent="ObstacleLayer/Villager4/CanvasLayer" parent_id_path=PackedInt32Array(661424751, 1135938401) index="1" unique_id=1469015329]
+text = ""
+
+[node name="NameLabel" parent="ObstacleLayer/Villager4/CanvasLayer" parent_id_path=PackedInt32Array(661424751, 1135938401) index="2" unique_id=1823985497]
+text = "Alice, Camping Savant"
+
 [node name="Block" parent="ObstacleLayer" unique_id=1511030162 instance=ExtResource("6_dy720")]
 position = Vector2(-376, -112)
 
 [node name="Player" parent="ObstacleLayer" unique_id=2080065266 instance=ExtResource("3_dy720")]
-position = Vector2(-307, -82)
 
 [node name="Camera2D" type="Camera2D" parent="ObstacleLayer/Player" unique_id=622542248]
 scale = Vector2(0.53805643, 0.53805643)
@@ -943,6 +987,7 @@ zoom = Vector2(3, 3)
 
 [node name="SceneEntrance" parent="." unique_id=1615416480 instance=ExtResource("5_w4rfp")]
 position = Vector2(-375, -162)
+playerSpawnPosition = Vector2(0, 75)
 
 [node name="LockedDoor" parent="." unique_id=1512125693 instance=ExtResource("3_81u2x")]
 position = Vector2(-377, -162)
@@ -976,3 +1021,6 @@ shape = SubResource("RectangleShape2D_gbii7")
 
 [connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
+
+[editable path="ObstacleLayer/OldMan"]
+[editable path="ObstacleLayer/Villager4"]

@@ -142,7 +142,10 @@ animations = [{
 radius = 5.0
 height = 10.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2080065266]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ft8w5"]
+size = Vector2(15, 15)
+
+[node name="Player" type="CharacterBody2D" unique_id=2080065266]
 collision_layer = 2
 collision_mask = 7
 motion_mode = 1
@@ -157,3 +160,14 @@ animation = &"Walk_Up"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=803713653]
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_ihfcg")
+
+[node name="InteractArea2D" type="Area2D" parent="." unique_id=93950469]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea2D" unique_id=1774109106]
+scale = Vector2(0.4399972, 0.4399972)
+shape = SubResource("RectangleShape2D_ft8w5")
+debug_color = Color(1.7808378e-06, 0.7602387, 0.30850863, 0.41960785)
+
+[connection signal="body_entered" from="InteractArea2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="InteractArea2D" to="." method="_on_area_2d_body_exited"]

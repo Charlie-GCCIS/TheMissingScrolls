@@ -8,13 +8,22 @@ class_name Player
 var collision: KinematicCollision2D
 
 func _ready() -> void:
-	if SceneManager.playerSpawnPosition != Vector2(0,0):
-		position = SceneManager.playerSpawnPosition
+	#if SceneManager.playerSpawnPosition != Vector2(0,0):
+		#position = SceneManager.playerSpawnPosition
 	Engine.max_fps = 60
 	
 
 func _physics_process(delta: float) -> void:
 	
+	MovePlayer()
+	MoveBlocks()
+	move_and_slide()
+
+
+	
+##################################################################################
+# Self made functions for moving player, pushing blocks, (more to come)
+func MovePlayer():
 	# input changes velocity (not position cause collisions have issues or something like that)
 	var movement_vector: Vector2 = Input.get_vector("Movement_Left", "Movement_Right", "Movement_Up", "Movement_Down")
 	velocity = movement_vector * move_speed
@@ -22,19 +31,26 @@ func _physics_process(delta: float) -> void:
 	# left and right animations
 	if (velocity.x > 0):
 		$AnimatedSprite2D.play("Walk_Right")
+		$InteractArea2D.position = Vector2(5, 1)
 	elif (velocity.x < 0):
 		$AnimatedSprite2D.play("Walk_Left")
+		$InteractArea2D.position = Vector2(-5, 1)
 	
 	# up and down animations
 	elif (velocity.y < 0):
 		$AnimatedSprite2D.play("Walk_Up")
+		$InteractArea2D.position = Vector2(0,-4)
 	elif (velocity.y > 0):
 		$AnimatedSprite2D.play("Walk_Down")
-	
-	# get last collision
-	#check if its the block
-	# if it is the block, push it
-	
+		$InteractArea2D.position = Vector2(0,6)
+		
+	# stop animations
+	else:
+		$AnimatedSprite2D.stop()
+		
+#########################################################################################	
+
+func MoveBlocks():
 	collision = get_last_slide_collision()
 	if collision:
 		var collisionNode = collision.get_collider()
@@ -44,11 +60,13 @@ func _physics_process(delta: float) -> void:
 			
 			collisionNode.apply_central_force(-collisionNormal * pushStrength)
 			#print(collision.get_collider().name)
-	
-		
-	
-		
-	# stop animations
-	else:
-		$AnimatedSprite2D.stop()
-	move_and_slide()
+
+
+# NPC Interact Collision
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if (body.is_in_group("Interactable")):
+		body.canInteract = true
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if (body.is_in_group("Interactable")):
+		body.canInteract = false

@@ -9,17 +9,17 @@ var isActivated: bool = false
 func _process(delta):
 	if Input.is_action_just_pressed("Interact") and canInteract:
 		if (isActivated):
-			ActivateSwitch()
-		else:
 			DeactivateSwitch()
+		else:
+			ActivateSwitch()
 
 
-func ActivateSwitch():
+func DeactivateSwitch():
 	isActivated = false
 	switchDeactivated.emit()
 	$AnimatedSprite2D.play("unactivated")
 	
-func DeactivateSwitch():
+func ActivateSwitch():
 	isActivated = true
 	switchActivated.emit()
 	$AnimatedSprite2D.play("activated")

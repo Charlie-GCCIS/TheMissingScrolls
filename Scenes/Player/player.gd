@@ -8,18 +8,20 @@ class_name Player
 var collision: KinematicCollision2D
 
 func _ready() -> void:
-	#if SceneManager.playerSpawnPosition != Vector2(0,0):
-		#position = SceneManager.playerSpawnPosition
+	UpdateTreasureLabel()
+	
 	Engine.max_fps = 60
 	
 
 func _physics_process(delta: float) -> void:
 	
 	MovePlayer()
+	
 	MoveBlocks()
+	
+	UpdateTreasureLabel()
+	
 	move_and_slide()
-
-
 	
 ##################################################################################
 # Self made functions for moving player, pushing blocks, (more to come)
@@ -70,3 +72,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if (body.is_in_group("Interactable")):
 		body.canInteract = false
+
+func UpdateTreasureLabel():
+	var treasureAmount: int = SceneManager.openedChests.size()
+	%ScrollLabel.text = str(treasureAmount)

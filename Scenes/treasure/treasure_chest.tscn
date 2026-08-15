@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cheyh28kbvddx"]
+
+[ext_resource type="Script" uid="uid://bkquh20xyta0k" path="res://Scenes/treasure/treasure_chest.gd" id="1_fo761"]
+[ext_resource type="Texture2D" uid="uid://hl4ttmhj6ftc" path="res://Adventure_Sprites/Ninja Adventure - Asset Pack/Items/Treasure/BigTreasureChest.png" id="1_kbneu"]
+[ext_resource type="Texture2D" uid="uid://cix4h858aoxtt" path="res://Adventure_Sprites/Ninja Adventure - Asset Pack/Items/Scroll/ScrollEmpty.png" id="3_tpr8u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fo761"]
+atlas = ExtResource("1_kbneu")
+region = Rect2(0, 0, 16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpr8u"]
+atlas = ExtResource("1_kbneu")
+region = Rect2(16, 0, 16, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4su2m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fo761")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpr8u")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbneu"]
+size = Vector2(16, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4su2m"]
+atlas = ExtResource("3_tpr8u")
+
+[node name="Treasure Chest" type="StaticBody2D" unique_id=1866079049 groups=["Interactable"]]
+script = ExtResource("1_fo761")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=930049996]
+sprite_frames = SubResource("SpriteFrames_4su2m")
+animation = &"closed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1119701657]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_kbneu")
+
+[node name="Scroll" type="Sprite2D" parent="." unique_id=1238094259]
+visible = false
+position = Vector2(0, -14)
+texture = SubResource("AtlasTexture_4su2m")
+
+[node name="Timer" type="Timer" parent="." unique_id=892970104]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="CloseChest"]

@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dpepctwha55fu"]
+
+[ext_resource type="Texture2D" uid="uid://b86kfhb83h7og" path="res://Adventure_Sprites/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetHouse.png" id="1_6v4ir"]
+[ext_resource type="Script" uid="uid://bclgvflhul0oo" path="res://Scenes/Sign/sign.gd" id="1_24oui"]
+[ext_resource type="Texture2D" uid="uid://ielxfg11qbi5" path="res://Adventure_Sprites/Ninja Adventure - Asset Pack/Ui/Dialog/ChoiceBox.png" id="3_4yqag"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24oui"]
+size = Vector2(16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4yqag"]
+font_size = 10
+font_color = Color(0, 0, 0, 1)
+
+[node name="Sign" type="StaticBody2D" unique_id=221746190 groups=["Interactable"]]
+process_mode = 3
+script = ExtResource("1_24oui")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=273829269]
+texture = ExtResource("1_6v4ir")
+region_enabled = true
+region_rect = Rect2(336, 288, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=949281543]
+shape = SubResource("RectangleShape2D_24oui")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=582698524]
+visible = false
+
+[node name="TextBoxTexture" type="TextureRect" parent="CanvasLayer" unique_id=1300051269]
+offset_left = 34.0
+offset_top = 101.0
+offset_right = 634.0
+offset_bottom = 276.0
+scale = Vector2(1.8415004, 2.5615015)
+texture = ExtResource("3_4yqag")
+
+[node name="PuzzleQuestionLabel" type="Label" parent="CanvasLayer" unique_id=819743709]
+offset_left = 129.0
+offset_top = 222.0
+offset_right = 314.0
+offset_bottom = 367.0
+scale = Vector2(4.920003, 4.920003)
+label_settings = SubResource("LabelSettings_4yqag")
+autowrap_mode = 3

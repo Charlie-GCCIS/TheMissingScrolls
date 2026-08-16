@@ -9,7 +9,8 @@ var collision: KinematicCollision2D
 
 func _ready() -> void:
 	UpdateTreasureLabel()
-	
+	if SceneManager.playerSpawnPosition != Vector2(0,0):
+		position = SceneManager.playerSpawnPosition
 	Engine.max_fps = 60
 	
 

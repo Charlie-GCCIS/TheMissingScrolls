@@ -31,11 +31,11 @@ func ActivateSwitch():
 func MakeVisible():
 	doorsOpened += 1
 	if (doorsNeeded <= doorsOpened):
-		visible = true
+		$AnimatedSprite2D.visible = true
 		$CollisionShape2D.set_deferred("disabled", false)
 
 func MakeInvisible():
 	doorsOpened -= 1
 	if (doorsNeeded > doorsOpened):
-		visible = false
+		$AnimatedSprite2D.visible = false
 		$CollisionShape2D.set_deferred("disabled", true)
